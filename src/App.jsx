@@ -1,7 +1,9 @@
 
-import { useEffect, useState, useCallback } from 'react'
+import { useState } from 'react'
 import './App.css'
 import Search from './components/Search'
+
+
 
 function App() {
   const [data, setData] = useState(null)
@@ -19,17 +21,34 @@ function App() {
   }
 
   if(!data){
-    return <Search handleSubmit={handleSubmit} inputValue={inputValue} setInputValue={inputValue => setInputValue(inputValue)}/>
+    return(
+      <div className="flex w-3/4 h-3/4 flex flex-col bg-white" >
+        <Search handleSubmit={handleSubmit} inputValue={inputValue} setInputValue={inputValue => setInputValue(inputValue)}/>
+      </div>
+    )
   }
- 
+
+  if(!data.login){
+    return(
+      <div className="flex w-3/4 h-3/4 flex flex-col bg-white" >
+      <Search handleSubmit={handleSubmit} inputValue={inputValue} setInputValue={inputValue => setInputValue(inputValue)}/>
+      <div className="results">
+        <h1>Data does not match</h1>
+      </div>
+    </div>
+    )
+  }
+
 
   if(data){
     return (
-      <>
+      <div className="flex w-3/4 h-3/4 flex flex-col bg-white">
+
         <Search handleSubmit={handleSubmit} inputValue={inputValue} setInputValue={inputValue => setInputValue(inputValue)}/>
+
         <div className="results">
           <h1>{data.name}</h1>
-          <img src={data.avatar_url} alt="" />
+          <img src={data.avatar_url} alt="avatar" className='w-28 h-28'/>
           <ul>
             <li>Bio: {data.bio}</li>
             <li>Number of repositories: {data.public_repos}</li>
@@ -37,9 +56,10 @@ function App() {
             <li>Following: {data.following}</li>
           </ul>
         </div>
-      </>
+      </div>
     )
   }
+
 
 
 }
