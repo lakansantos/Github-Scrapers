@@ -20,17 +20,15 @@
 }
 
 
-ul li{
-  list-style-type: none;
+
+
+
+.content-container{
+  height: 100%;
+  width: 30%;
 }
 
+span{
+  color: rgb(97, 186, 221);
 
-
-.contents{
-  border: 1px solid pink;
-
-}
-
-.img-container{
-  border: 1px solid black;
 }

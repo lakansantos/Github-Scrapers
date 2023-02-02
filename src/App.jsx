@@ -18,6 +18,7 @@ function App() {
       .then(users => setData(users))
       .catch(err => setError(err))
       setLoading(loading)
+      console.log(data)
   }
 
   if(!data){
@@ -38,6 +39,17 @@ function App() {
     </div>
     )
   }
+  const ifEmpty = (detail) => {
+    if(detail === '' || detail === null) {
+      return 'Not specified'
+    } else {
+      return detail
+    }
+  }
+
+
+
+
 
   if(data){
     return (
@@ -46,20 +58,21 @@ function App() {
           <Search handleSubmit={handleSubmit} inputValue={inputValue} setInputValue={inputValue => setInputValue(inputValue)}/>
         </div>
 
-        <div className='flex flex-row items-center justify-center mt-12'>
+        <div className='flex flex-row items-center justify-center mt-12 h-fit'>
           <div className="img-container">
             <img src={data.avatar_url} alt="avatar" className='w-72 h-72 object-contain'/>
           </div>
 
-          <div className="contents">
-            
-            <ul className='border-solid border-2 border-black'>
-              <li><h1>Name: {data.name}</h1></li>
-              <li>Bio: {data.bio}</li>
-              <li>Number of repositories: {data.public_repos}</li>
-              <li>Followers: {data.followers}</li>
-              <li>Following: {data.following}</li>
-            </ul>
+          <div className="content-container text-left ml-4">
+            <h1><span>Name:</span> {data.name}</h1>
+            <div className='h-fit text-left'>
+              <p><span>Bio:</span> {ifEmpty(data.bio)}</p>
+              <p><span>Number of repositories:</span> {data.public_repos}</p>
+              <p><span>Followers:</span> {data.followers}</p>
+              <p><span>Following:</span> {data.following}</p>
+              <p><span>Location:</span> {ifEmpty(data.location)}</p>
+              <p><span>Company:</span> {ifEmpty(data.company)}</p>
+            </div>
           </div>
         </div>
       </div>
