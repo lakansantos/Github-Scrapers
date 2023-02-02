@@ -16,30 +16,32 @@ function App() {
       .then(users => setData(users))
       .catch(err => setError(err))
       setLoading(loading)
-      console.log(data)
   }
 
-  if(loading){
+  if(!data){
     return <Search handleSubmit={handleSubmit} inputValue={inputValue} setInputValue={inputValue => setInputValue(inputValue)}/>
   }
+ 
 
-  return (
-  <>
-    <Search handleSubmit={handleSubmit} inputValue={inputValue} setInputValue={inputValue => setInputValue(inputValue)}/>
-    <div className="results">
-      <h1>{data ? data.name : 'No input yet'}</h1>
-      <img src={data ? data.avatar_url : ''} alt="" />
-      <ul>
-        <li>Bio: {data ? data.bio : ''}</li>
-        <li>Number of repositories: {data ? data.public_repos: ''}</li>
-        <li>Followers: {data ? data.followers : ''}</li>
-        <li>Following: {data ? data.following : ''}</li>
-      </ul>
-    </div>
+  if(data){
+    return (
+      <>
+        <Search handleSubmit={handleSubmit} inputValue={inputValue} setInputValue={inputValue => setInputValue(inputValue)}/>
+        <div className="results">
+          <h1>{data.name}</h1>
+          <img src={data.avatar_url} alt="" />
+          <ul>
+            <li>Bio: {data.bio}</li>
+            <li>Number of repositories: {data.public_repos}</li>
+            <li>Followers: {data.followers}</li>
+            <li>Following: {data.following}</li>
+          </ul>
+        </div>
+      </>
+    )
+  }
 
 
-  </>
-  )
 }
 
 
