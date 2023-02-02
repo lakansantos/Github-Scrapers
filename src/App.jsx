@@ -39,22 +39,28 @@ function App() {
     )
   }
 
-
   if(data){
     return (
       <div className="flex w-3/4 h-3/4 flex flex-col bg-white">
+        <div>
+          <Search handleSubmit={handleSubmit} inputValue={inputValue} setInputValue={inputValue => setInputValue(inputValue)}/>
+        </div>
 
-        <Search handleSubmit={handleSubmit} inputValue={inputValue} setInputValue={inputValue => setInputValue(inputValue)}/>
+        <div className='flex flex-row items-center justify-center mt-12'>
+          <div className="img-container">
+            <img src={data.avatar_url} alt="avatar" className='w-72 h-72 object-contain'/>
+          </div>
 
-        <div className="results">
-          <h1>{data.name}</h1>
-          <img src={data.avatar_url} alt="avatar" className='w-28 h-28'/>
-          <ul>
-            <li>Bio: {data.bio}</li>
-            <li>Number of repositories: {data.public_repos}</li>
-            <li>Followers: {data.followers}</li>
-            <li>Following: {data.following}</li>
-          </ul>
+          <div className="contents">
+            
+            <ul className='border-solid border-2 border-black'>
+              <li><h1>Name: {data.name}</h1></li>
+              <li>Bio: {data.bio}</li>
+              <li>Number of repositories: {data.public_repos}</li>
+              <li>Followers: {data.followers}</li>
+              <li>Following: {data.following}</li>
+            </ul>
+          </div>
         </div>
       </div>
     )

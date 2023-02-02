@@ -20,16 +20,17 @@
 }
 
 
-
-.results{
-  border: 1px solid black;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 ul li{
   list-style-type: none;
 }
 
 
+
+.contents{
+  border: 1px solid pink;
+
+}
+
+.img-container{
+  border: 1px solid black;
+}
