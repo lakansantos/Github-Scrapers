@@ -25,9 +25,12 @@
 
 .content-container{
   height: 100%;
-  width: 30%;
-}
 
+}
+.name{
+  color: rgb(97, 186, 221);
+  font-weight: bold;
+}
 span{
   color: rgb(97, 186, 221);
 
