@@ -23,9 +23,9 @@ function App() {
 
   if(!data){
     return(
-      <div className="flex w-full h-1/2 flex flex-col bg-white/90 sm:w-3/4 fixed sm:unset">
+      <div className="flex w-full h-1/2 flex flex-col bg-white/90 sm:w-3/4 fixed">
         <Search handleSubmit={handleSubmit} inputValue={inputValue} setInputValue={inputValue => setInputValue(inputValue)}/>
-        <h1 className='h-[20%] flex justify-center items-center text-2xl px-4'>No queries yet.</h1>
+        <h1 className='h-[20%] flex justify-center items-center text-2xl px-4 mb-4'>No queries yet.</h1>
       </div>
     )
   }

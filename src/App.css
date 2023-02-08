@@ -25,6 +25,7 @@
 
 @media (max-width: 600px) {
     #root{
+      min-height: 100vh;
       height: fit-content;
     }
 }
