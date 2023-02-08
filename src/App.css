@@ -21,11 +21,7 @@
   /* background: linear-gradient(45deg, #0d1117,#333, #0d1117); */
 }
 
-@media (max-width: 500px) {
-    #root{
-      height: 120vh;
-    }
-}
+
 
 
 .content-container{

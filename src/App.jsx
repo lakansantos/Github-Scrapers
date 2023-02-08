@@ -23,8 +23,9 @@ function App() {
 
   if(!data){
     return(
-      <div className="flex w-full h-3/4 flex flex-col bg-white/90 sm:w-3/4">
+      <div className="flex w-full h-1/2 flex flex-col bg-white/90 sm:w-3/4">
         <Search handleSubmit={handleSubmit} inputValue={inputValue} setInputValue={inputValue => setInputValue(inputValue)}/>
+        <h1 className='h-[50%] flex justify-center items-center text-2xl px-4'>Scrape!</h1>
       </div>
     )
   }
@@ -56,7 +57,7 @@ function App() {
         </div>
 
         <div className='flex flex-row items-center justify-center mt-12 h-1/2 sm:md:flex-col sm:max-md:hit-fit sm:h-fit md:h-fit'>
-          <div className='flex flex-col mt-72 sm:mt-0 sm:pt-0 sm:flex-row items-center justify-center h-full w-full sm:w-3/4 h-fit'>
+          <div className='flex flex-col mt-28 sm:mt-0 sm:pt-0 sm:flex-row items-center justify-center h-[75%] sm:h-full w-full sm:w-3/4 '>
             <div className="img-container h-full flex justify-center bg-sky-400 w-50 max-sm:w-full">
               <img src={data.avatar_url} alt="avatar" className='w-full h-full sm:w-72 sm:object-fixed sm:max-md:w-full'/>
             </div>
