@@ -21,7 +21,9 @@
   /* background: linear-gradient(45deg, #0d1117,#333, #0d1117); */
 }
 
-@media (max-width: 500px) {
+
+
+@media (max-width: 600px) {
     #root{
       height: fit-content;
     }

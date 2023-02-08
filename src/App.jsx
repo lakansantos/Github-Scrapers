@@ -23,20 +23,20 @@ function App() {
 
   if(!data){
     return(
-      <div className="flex w-full h-1/2 flex flex-col bg-white/90 sm:w-3/4">
+      <div className="flex w-full h-1/2 flex flex-col bg-white/90 sm:w-3/4 fixed sm:unset">
         <Search handleSubmit={handleSubmit} inputValue={inputValue} setInputValue={inputValue => setInputValue(inputValue)}/>
-        <h1 className='h-[50%] flex justify-center items-center text-2xl px-4'>Scrape!</h1>
+        <h1 className='h-[20%] flex justify-center items-center text-2xl px-4'>No queries yet.</h1>
       </div>
     )
   }
 
   if(!data.login){
     return(
-      <div className="flex w-full h-3/4 flex flex-col bg-white/90 sm:w-3/4 ">
+      <div className="flex w-full h-fit sm:h-3/4 flex flex-col bg-white/90 sm:w-3/4 ">
       <Search handleSubmit={handleSubmit} inputValue={inputValue} setInputValue={inputValue => setInputValue(inputValue)}/>
       <div className="results h-fit flex justify-center items-center flex-col">
         <h1 className='text-4xl text-red-400 mt-4'>User not found!</h1>
-        <img src={nouserfound} alt="Not found" />
+        <img src={nouserfound} alt="Not found" className='mb-4' />
       </div>
     </div>
     )
@@ -56,8 +56,8 @@ function App() {
           <Search handleSubmit={handleSubmit} inputValue={inputValue} setInputValue={inputValue => setInputValue(inputValue)}/>
         </div>
 
-        <div className='flex flex-row items-center justify-center mt-12 h-1/2 sm:md:flex-col sm:max-md:hit-fit sm:h-fit md:h-fit'>
-          <div className='flex flex-col mt-28 sm:mt-0 sm:pt-0 sm:flex-row items-center justify-center h-[75%] sm:h-full w-full sm:w-3/4 '>
+        <div className='flex flex-row items-center justify-center h-1/2 sm:md:flex-col sm:max-md:hit-fit sm:h-fit md:h-fit'>
+          <div className='flex flex-col mt-0 sm:mt-0 sm:pt-0 sm:flex-row items-center justify-center h-[75%] sm:h-full w-full sm:w-3/4 '>
             <div className="img-container h-full flex justify-center bg-sky-400 w-50 max-sm:w-full">
               <img src={data.avatar_url} alt="avatar" className='w-full h-full sm:w-72 sm:object-fixed sm:max-md:w-full'/>
             </div>
