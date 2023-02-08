@@ -3,7 +3,7 @@ import { useState } from 'react'
 import './App.css'
 import Search from './components/Search'
 import {FiExternalLink} from 'react-icons/fi'
-
+import nouserfound from './img/nouserfound.png'
 
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
 
   if(!data){
     return(
-      <div className="flex w-3/4 h-3/4 flex flex-col bg-white" >
+      <div className="flex w-full h-3/4 flex flex-col bg-white/90 sm:w-3/4">
         <Search handleSubmit={handleSubmit} inputValue={inputValue} setInputValue={inputValue => setInputValue(inputValue)}/>
       </div>
     )
@@ -32,10 +32,11 @@ function App() {
 
   if(!data.login){
     return(
-      <div className="flex w-3/4 h-3/4 flex flex-col bg-white" >
+      <div className="flex w-full h-3/4 flex flex-col bg-white/90 sm:w-3/4 ">
       <Search handleSubmit={handleSubmit} inputValue={inputValue} setInputValue={inputValue => setInputValue(inputValue)}/>
-      <div className="results">
-        <h1>Data does not match</h1>
+      <div className="results h-fit flex justify-center items-center flex-col">
+        <h1 className='text-4xl text-red-400 mt-4'>User not found!</h1>
+        <img src={nouserfound} alt="Not found" />
       </div>
     </div>
     )
@@ -48,25 +49,21 @@ function App() {
     }
   }
 
-
-
-
-
   if(data){
-    return (
-      <div className="flex w-3/4 h-3/4 flex flex-col bg-white">
+    return data?  (
+      <div className="flex w-full h-full flex flex-col bg-white/90 sm:w-3/4 sm:h-3/4 sm:max-xl:h-full ">
         <div>
           <Search handleSubmit={handleSubmit} inputValue={inputValue} setInputValue={inputValue => setInputValue(inputValue)}/>
         </div>
 
-        <div className='flex flex-row items-center justify-center mt-12 h-1/2   w-full'>
-          <div className='flex items-center justify-center h-fit w-3/4 h-full'>
-            <div className="img-container h-full w-50 flex justify-center bg-sky-400">
-              <img src={data.avatar_url} alt="avatar" className='w-72 object-fixed'/>
+        <div className='flex flex-row items-center justify-center mt-12 h-1/2 sm:md:flex-col sm:max-md:hit-fit sm:h-fit md:h-fit'>
+          <div className='flex flex-col mt-72 sm:mt-0 sm:pt-0 sm:flex-row items-center justify-center h-full w-full sm:w-3/4 h-fit'>
+            <div className="img-container h-full flex justify-center bg-sky-400 w-50 max-sm:w-full">
+              <img src={data.avatar_url} alt="avatar" className='w-full h-full sm:w-72 sm:object-fixed sm:max-md:w-full'/>
             </div>
       
-            <div className="content-container pl-4 pt-4 text-left w-3/6 bg-gray-200">
-              <h1 className='name text-4xl'>{data.name}</h1>
+            <div className="content-container pl-4 pt-4 pb-4 sm:pb-0 text-left w-full  h-fit sm:h-full sm:w-3/6 bg-white border border-solid border-sky-500 sm:max-md:w-full">
+              <h1 className='name text-2xl sm:text-4xl text-left'>{data.name}</h1>
               <div className='h-fit text-left mt-4'>
                 <p><span>Bio:</span> {ifEmpty(data.bio)}</p>
                 <p><span>Number of repositories:</span> {data.public_repos}</p>
@@ -76,12 +73,20 @@ function App() {
                 <p><span>Company:</span> {ifEmpty(data.company)}</p>
               </div>
               <a href={`https://github.com/${data.login}`} target="_blank">
-                <button className='bg-sky-500 w-fit p-1  gap-2 text-white flex items-center justify-center mt-4'>Visit<FiExternalLink/></button>
+                <button className='bg-sky-500 w-fit p-1 mb-4 gap-2 text-white flex items-center justify-center mt-4'>Visit<FiExternalLink/></button>
               </a>
             </div>              
           </div>
         </div>
       </div>
+    ) : (
+          <div className="flex w-3/4 h-3/4 flex flex-col bg-white/90">
+            <div>
+              <Search handleSubmit={handleSubmit} inputValue={inputValue} setInputValue={inputValue => setInputValue(inputValue)}/>
+            </div>
+
+            <SkeletonTemplate />
+          </div>
     )
   }
 
