@@ -19,8 +19,11 @@ function App() {
       .then(users => setData(users))
       .catch(err => setError(err))
       setLoading(loading)
+
+
   }
 
+ 
   if(!data){
     return(
       <div className="flex w-full h-3/4 flex flex-col bg-white/90 sm:w-3/4">
@@ -28,7 +31,7 @@ function App() {
       </div>
     )
   }
-
+  
   if(!data.login){
     return(
       <div className="flex w-full h-3/4 flex flex-col bg-white/90 sm:w-3/4 ">
