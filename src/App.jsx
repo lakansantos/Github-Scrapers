@@ -19,7 +19,6 @@ function App() {
       .then(users => setData(users))
       .catch(err => setError(err))
       setLoading(loading)
-      console.log(data)
   }
 
   if(!data){
