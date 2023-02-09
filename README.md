@@ -1,3 +1,3 @@
 # Github-Scrapers
 ## A reactJS web application that scrapes users on GitHub.
-### (Ongoing development)
+### Technology used: ReactJS, TailwindCSS, GitHub API
